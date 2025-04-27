@@ -1,12 +1,12 @@
 const http = require('http');
 
-const PORT = 3000; // 👈 port here
+const port = 4000; // important! same as security group and URL
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.end('Hello World!');
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello from EC2 Server!\n');
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+server.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
 });
