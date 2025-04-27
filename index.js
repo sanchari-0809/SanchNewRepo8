@@ -1,13 +1,12 @@
-const express = require('express');  // Assuming you are using Express
-const app = express();
+const http = require('http');
 
-const PORT = 3000; // 👈 here you set your port number
+const PORT = 3000; // 👈 port here
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.end('Hello World!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
 });
-
